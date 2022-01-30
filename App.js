@@ -11,16 +11,17 @@ const TabNavigator = createBottomTabNavigator(
   {ReadStory: ReadStoryScreen}
 );
 
-const AppContainer = createAppContainer(
+const AppSwitchNavigator = createSwitchNavigator({
+  LoadingScreen: LoadingScreen,
   TabNavigator
-);
+})
 
-export default class App extends React.Component{
-  render(){
+const AppNavigator = createAppContainer(AppSwitchNavigator)
+
+export default function App() {
   return (
-    <AppContainer />
-  );
-  }
+    <AppNavigator />
+  )
 }
 
 const styles = StyleSheet.create({
